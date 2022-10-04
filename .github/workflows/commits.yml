@@ -6,5 +6,9 @@ jobs:
   conventional-commits:
     runs-on: ubuntu-latest
     steps:
-      - name: Conventional commits check using commitizen
-        uses: manang/commitizen-check@v0.0.1
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     - name: check-for-cc
+       id: check-for-cc
+       uses: agenthunt/conventional-commit-checker-action@v1.0.0
