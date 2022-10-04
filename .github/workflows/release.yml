@@ -1,11 +1,15 @@
+name: release
 on:
-  push:
+  workflow_run:
     branches:
       - master
-name: release-please
+    types:
+      - completed
+    workflows:
+      - conventional-commits
 
 jobs:
-  release-please:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3.5.0

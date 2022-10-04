@@ -1,14 +1,29 @@
+name: conventional-commits
 on:
   push:
-name: commit-validation
 
 jobs:
   conventional-commits:
     runs-on: ubuntu-latest
     steps:
-     - name: Checkout
-       uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-     - name: check-for-cc
-       id: check-for-cc
-       uses: agenthunt/conventional-commit-checker-action@v1.0.0
+      - uses: gentleseal/action-conventional-commits@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          valid-commit-types: >
+            [
+              "feat",
+              "fix",
+              "docs",
+              "style",
+              "refactor",
+              "test",
+              "build",
+              "ci",
+              "chore",
+              "revert",
+              "merge",
+              "wip",
+              "enh"
+            ]
