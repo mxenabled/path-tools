@@ -1,12 +1,12 @@
 name: release
 on:
   workflow_run:
+    workflows:
+      - conventional-commits
     branches:
       - master
     types:
       - completed
-    workflows:
-      - conventional-commits
 
 jobs:
   release:
