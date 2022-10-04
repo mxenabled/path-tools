@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/mxenabled/path-tools/compare/v2.1.0...v2.1.1) (2022-10-04)
+
+
+### Bug Fixes
+
+* **main:** grammar fix ([6e05651](https://github.com/mxenabled/path-tools/commit/6e056513a32a47181346237238957fb75e221589))
+
 ## [2.1.0](https://github.com/mxenabled/path-tools/compare/v2.0.0...v2.1.0) (2022-10-04)
 
 
