@@ -13,7 +13,7 @@ public class Main {
     }
 
     if (language.equals("spanish")) {
-      System.out.println("Ola!");
+      System.out.println("¡Ola!");
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
     }
