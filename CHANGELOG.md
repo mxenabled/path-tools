@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/mxenabled/path-tools/compare/v2.0.0...v2.1.0) (2022-10-04)
+
+
+### Features
+
+* **main:** add southern language ([ec27631](https://github.com/mxenabled/path-tools/commit/ec27631bf304f865293b2f10cda64cbc1eab9d2b))
+
+
+### Bug Fixes
+
+* **main:** fix spanish grammar ([2ab4564](https://github.com/mxenabled/path-tools/commit/2ab4564ff04dc9a0f73f000d0921a67526cb1089))
+
 ## [2.0.0](https://github.com/mxenabled/path-tools/compare/v1.0.0...v2.0.0) (2022-10-04)
 
 
