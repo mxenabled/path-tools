@@ -9,6 +9,8 @@ public class Main {
       String lang = args[0].toLowerCase();
       if (lang.equals("spanish")) {
         language = "spanish";
+      } else if (lang.equals("southern")) {
+        language = "southern";
       }
     }
 
@@ -16,6 +18,8 @@ public class Main {
       System.out.println("¡Ola!");
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
+    } else if (language.equals("southern")) {
+      System.out.println("Hey, 'yal!");
     }
 
     System.exit(0);
