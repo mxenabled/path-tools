@@ -1,0 +1,10 @@
+on:
+  push:
+name: commit-validation
+
+jobs:
+  conventional-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conventional commits check using commitizen
+        uses: manang/commitizen-check@v0.0.1
