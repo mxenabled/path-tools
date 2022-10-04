@@ -19,7 +19,7 @@ public class Main {
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
     } else if (language.equals("southern")) {
-      System.out.println("Hey, 'yal!");
+      System.out.println("Hey, yal!");
     }
 
     System.exit(0);
