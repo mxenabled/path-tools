@@ -21,7 +21,7 @@ public class Main {
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
     } else if (language.equals("orkan")) {
-      System.out.println("Na-nu, Na-nu!");
+      System.out.println("Na-nu, Na-nu^");
     } else if (language.equals("southern")) {
       System.out.println("Hey, yal!");
     }
