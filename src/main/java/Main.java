@@ -1,11 +1,23 @@
 public class Main {
   public static void main(String... args) {
+    String language = "english";
+
     if (args.length > 0) {
       System.out.println("args:");
       System.out.println("  " + args[0]);
+
+      String lang = args[0].toLowerCase();
+      if (lang.equals("spanish")) {
+        language = "spanish";
+      }
     }
 
-    System.out.println("Hello world!");
+    if (language.equals("spanish")) {
+      System.out.println("Ola!");
+    } else if (language.equals("english")) {
+      System.out.println("Hello world!");
+    }
+
     System.exit(0);
   }
 }
