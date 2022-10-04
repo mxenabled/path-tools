@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/mxenabled/path-tools/compare/v2.1.1...v2.2.0) (2022-10-04)
+
+
+### Features
+
+* **main:** add orkan language ([69afe63](https://github.com/mxenabled/path-tools/commit/69afe63ab274c6a2712611223a1be18b64c4e5d6))
+
 ## [2.1.1](https://github.com/mxenabled/path-tools/compare/v2.1.0...v2.1.1) (2022-10-04)
 
 
