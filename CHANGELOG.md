@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0](https://github.com/mxenabled/path-tools/compare/v1.0.0...v2.0.0) (2022-10-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **main:** Exit status has change to 0. Check bash scripts.
+
+### Features
+
+* initial commit ([3982849](https://github.com/mxenabled/path-tools/commit/3982849bbb5a951abbdcb40b1738fce40767ed97))
+* **main:** add spanish language ([#8](https://github.com/mxenabled/path-tools/issues/8)) ([0ef8a04](https://github.com/mxenabled/path-tools/commit/0ef8a04045f94e091cceccc6a19d77b97bbdd128))
+* **main:** output args ([63ff448](https://github.com/mxenabled/path-tools/commit/63ff448f9664bf48b698353a120c4558b360b997))
+
+
+### Bug Fixes
+
+* **main:** set exit status to 0 ([3187676](https://github.com/mxenabled/path-tools/commit/3187676a2e4e076e1e73e0248c63f850acde3285))
+
 ## 1.0.0 (2022-10-04)
 
 
