@@ -14,6 +14,8 @@ public class Main {
         language = "spanish";
       } else if (lang.equals("southern")) {
         language = "southern";
+      } else if (lang.equals("millenial")) {
+        language = "millenial";
       } else if (lang.equals("orkan")) {
         language = "orkan";
       }
@@ -25,6 +27,8 @@ public class Main {
       System.out.println("Hey, yal!");
     } else if (language.equals("orkan")) {
       System.out.println("Na-nu, Na-nu^");
+    } else if (language.equals("millenial")) {
+      System.out.println("'Sup?");
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
     }
