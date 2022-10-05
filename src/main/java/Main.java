@@ -12,27 +12,15 @@ public class Main {
       String lang = args[0].toLowerCase();
       if (lang.equals("spanish")) {
         language = "spanish";
-      } else if (lang.equals("southern")) {
-        language = "southern";
-      } else if (lang.equals("millennial")) {
-        language = "millennial";
-      } else if (lang.equals("orkan")) {
-        language = "orkan";
       }
     }
 
     if (language.equals("spanish")) {
       System.out.println("¡Ola!");
-    } else if (language.equals("southern")) {
-      System.out.println("Hey, yal!");
-    } else if (language.equals("orkan")) {
-      System.out.println("Na-nu, Na-nu^");
-    } else if (language.equals("millennial")) {
-      System.out.println("'Sup?");
     } else if (language.equals("english")) {
       System.out.println("Hello world!");
     }
 
-    System.exit(0);
+    System.exit(1);
   }
 }
