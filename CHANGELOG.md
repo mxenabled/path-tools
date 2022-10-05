@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/mxenabled/path-tools/compare/v3.0.0...v3.1.0) (2022-10-05)
+
+
+### Features
+
+* phantom feature ([4bd7bd0](https://github.com/mxenabled/path-tools/commit/4bd7bd0b619175b58add2d3267107d58fe57106d))
+
+
+### Bug Fixes
+
+* phantom bug ([272f277](https://github.com/mxenabled/path-tools/commit/272f277cf768b0b4f6e5bca8803f716687ec8649))
+
 ## [3.0.0](https://github.com/mxenabled/path-tools/compare/v2.3.0...v3.0.0) (2022-10-05)
 
 
