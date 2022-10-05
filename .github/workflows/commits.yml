@@ -1,6 +1,7 @@
-name: conventional-commits
 on:
   push:
+
+name: conventional-commits
 
 jobs:
   conventional-commits:
