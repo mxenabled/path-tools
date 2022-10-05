@@ -21,12 +21,12 @@ public class Main {
 
     if (language.equals("spanish")) {
       System.out.println("¡Ola!");
-    } else if (language.equals("english")) {
-      System.out.println("Hello world!");
-    } else if (language.equals("orkan")) {
-      System.out.println("Na-nu, Na-nu^");
     } else if (language.equals("southern")) {
       System.out.println("Hey, yal!");
+    } else if (language.equals("orkan")) {
+      System.out.println("Na-nu, Na-nu^");
+    } else if (language.equals("english")) {
+      System.out.println("Hello world!");
     }
 
     System.exit(0);
