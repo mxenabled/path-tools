@@ -14,3 +14,4 @@ jobs:
           release-type: simple
           extra-files: |
             build.gradle
+            README.md
