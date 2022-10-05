@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/mxenabled/path-tools/compare/v2.3.0...v3.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* broken build
+
+### Bug Fixes
+
+* broken build ([8cb1704](https://github.com/mxenabled/path-tools/commit/8cb17046d492bd0f91c9746471c2871f9eeb59ec))
+
 ## [2.3.0](https://github.com/mxenabled/path-tools/compare/v2.2.0...v2.3.0) (2022-10-05)
 
 
