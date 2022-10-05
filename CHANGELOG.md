@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://github.com/mxenabled/path-tools/compare/v2.2.0...v2.3.0) (2022-10-05)
+
+
+### Features
+
+* add millenial greeting ([793cbf3](https://github.com/mxenabled/path-tools/commit/793cbf3150f82502b3858a21f8d86783d3a9f73c))
+
+
+### Bug Fixes
+
+* orkan grammar ([41c1792](https://github.com/mxenabled/path-tools/commit/41c179247c45f6dd56ecc670b09fccf3301d7694))
+
 ## [2.2.0](https://github.com/mxenabled/path-tools/compare/v2.1.1...v2.2.0) (2022-10-04)
 
 
