@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/mxenabled/path-tools/compare/v3.1.0...v3.1.1) (2022-10-05)
+
+
+### Bug Fixes
+
+* say goodbye ([0da4d00](https://github.com/mxenabled/path-tools/commit/0da4d005e21f78fb9d11a311eb5e061e4c9289b9))
+
 ## [3.1.0](https://github.com/mxenabled/path-tools/compare/v3.0.0...v3.1.0) (2022-10-05)
 
 
