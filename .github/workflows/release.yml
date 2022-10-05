@@ -1,9 +1,7 @@
 on:
-  workflow_run:
-    workflows: ["conventional-commits"]
+  push:
     branches:
       - "master"
-    types: [completed]
 
 name: release
 
