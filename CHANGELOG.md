@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.2.0](https://github.com/mxenabled/path-tools/compare/v3.1.1...v3.2.0) (2022-10-05)
+
+
+### Features
+
+* audible greetings ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+* back off on languages ([7984308](https://github.com/mxenabled/path-tools/commit/798430833da462ce5795efa09b1a0e9958f46f56))
+* **main:** add audio argument ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+* remove silly languages ([7984308](https://github.com/mxenabled/path-tools/commit/798430833da462ce5795efa09b1a0e9958f46f56))
+* **sound:** add sound module ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+
 ## [3.1.1](https://github.com/mxenabled/path-tools/compare/v3.1.0...v3.1.1) (2022-10-05)
 
 
