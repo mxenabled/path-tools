@@ -14,6 +14,8 @@ public class Main {
         language = "spanish";
       } else if (lang.equals("orkan")) {
         language = "orkan";
+      } else if (lang.equals("bob")) {
+        language = "bob";
       }
     }
 
@@ -23,6 +25,8 @@ public class Main {
       System.out.println("Hello world!");
     } else if (language.equals("orkan")) {
       System.out.println("Na-nu, Na-nu^");
+    } else if (language.equals("bob")) {
+      System.out.println("Howdy, 'yall");
     }
 
     System.exit(1);
