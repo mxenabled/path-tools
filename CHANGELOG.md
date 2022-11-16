@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/mxenabled/path-tools/compare/v1.0.0...v1.1.0) (2022-11-16)
+
+
+### Features
+
+* bob language ([0dfeec8](https://github.com/mxenabled/path-tools/commit/0dfeec8629974afebcbacf5a96c879a3bde7b820))
+
+
+### Bug Fixes
+
+* fix invalid dependencies ([9a59953](https://github.com/mxenabled/path-tools/commit/9a5995344c8fb1eb1e13dae151855eac116bfb69))
+
 ## 1.0.0 (2022-11-16)
 
 
