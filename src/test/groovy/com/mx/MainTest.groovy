@@ -8,6 +8,6 @@ class MainTest extends Specification {
     String cyphertext = "hello"
 
     then:
-    cyphertext.contains "ello"
+    cyphertext.contains "llo"
   }
 }
