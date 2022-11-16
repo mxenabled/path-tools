@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.0.0 (2022-11-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* phantom breaking change
+* broken build
+* **main:** Exit status has change to 0. Check bash scripts.
+
+### Features
+
+* add millenial greeting ([793cbf3](https://github.com/mxenabled/path-tools/commit/793cbf3150f82502b3858a21f8d86783d3a9f73c))
+* audible greetings ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+* back off on languages ([7984308](https://github.com/mxenabled/path-tools/commit/798430833da462ce5795efa09b1a0e9958f46f56))
+* initial commit ([3982849](https://github.com/mxenabled/path-tools/commit/3982849bbb5a951abbdcb40b1738fce40767ed97))
+* **language:** add orkan greeting ([2ae9f7e](https://github.com/mxenabled/path-tools/commit/2ae9f7e68b47c0579647816870f7f248ffffed04))
+* **main:** add audio argument ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+* **main:** add orkan language ([69afe63](https://github.com/mxenabled/path-tools/commit/69afe63ab274c6a2712611223a1be18b64c4e5d6))
+* **main:** add southern language ([ec27631](https://github.com/mxenabled/path-tools/commit/ec27631bf304f865293b2f10cda64cbc1eab9d2b))
+* **main:** add spanish language ([#8](https://github.com/mxenabled/path-tools/issues/8)) ([0ef8a04](https://github.com/mxenabled/path-tools/commit/0ef8a04045f94e091cceccc6a19d77b97bbdd128))
+* **main:** output args ([63ff448](https://github.com/mxenabled/path-tools/commit/63ff448f9664bf48b698353a120c4558b360b997))
+* more build fixes!! ([c763bd0](https://github.com/mxenabled/path-tools/commit/c763bd0b38c48ac6363b8372f3934df54797872e))
+* phantom breaking change ([e93b763](https://github.com/mxenabled/path-tools/commit/e93b763fd885aece630c1213b43374dbe99fedfe))
+* phantom feature ([4bd7bd0](https://github.com/mxenabled/path-tools/commit/4bd7bd0b619175b58add2d3267107d58fe57106d))
+* remove silly languages ([7984308](https://github.com/mxenabled/path-tools/commit/798430833da462ce5795efa09b1a0e9958f46f56))
+* **sound:** add sound module ([9a52539](https://github.com/mxenabled/path-tools/commit/9a52539bc11b945ed8bc24020c58822d82e881f1))
+
+
+### Bug Fixes
+
+* broken build ([8cb1704](https://github.com/mxenabled/path-tools/commit/8cb17046d492bd0f91c9746471c2871f9eeb59ec))
+* grammar fix ([8e61327](https://github.com/mxenabled/path-tools/commit/8e613275b2170b3644a81a6c86f10c34f5b02321))
+* **main:** fix spanish grammar ([2ab4564](https://github.com/mxenabled/path-tools/commit/2ab4564ff04dc9a0f73f000d0921a67526cb1089))
+* **main:** grammar fix ([6e05651](https://github.com/mxenabled/path-tools/commit/6e056513a32a47181346237238957fb75e221589))
+* **main:** set exit status to 0 ([3187676](https://github.com/mxenabled/path-tools/commit/3187676a2e4e076e1e73e0248c63f850acde3285))
+* orkan grammar ([41c1792](https://github.com/mxenabled/path-tools/commit/41c179247c45f6dd56ecc670b09fccf3301d7694))
+* phantom bug ([272f277](https://github.com/mxenabled/path-tools/commit/272f277cf768b0b4f6e5bca8803f716687ec8649))
+* say goodbye ([0da4d00](https://github.com/mxenabled/path-tools/commit/0da4d005e21f78fb9d11a311eb5e061e4c9289b9))
+
 ## [3.2.0](https://github.com/mxenabled/path-tools/compare/v3.1.1...v3.2.0) (2022-10-05)
 
 
