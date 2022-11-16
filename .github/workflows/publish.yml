@@ -6,9 +6,9 @@
 # Signs and published artifacts to Maven Central
 #
 on:
-  push:
+  create:
     tags:
-      - '^v.*$'
+      - *
 
 name: publish
 
