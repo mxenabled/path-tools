@@ -6,8 +6,8 @@
 # Signs and published artifacts to Maven Central
 #
 on:
-  release:
-    types: [published]
+  create:
+    tags:
 
 name: publish
 
