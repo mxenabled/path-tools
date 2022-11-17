@@ -2,6 +2,9 @@
  * This is a comment
  */
 public class Main {
+  /**
+   * Main entry point
+   */
   public static void main(String... args) {
     String language = "english";
 
