@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.3](https://github.com/mxenabled/path-tools/compare/v1.1.2...v1.1.3) (2022-11-17)
+
+
+### Bug Fixes
+
+* publish on push tags ([09d2cad](https://github.com/mxenabled/path-tools/commit/09d2cad23ce23f1fc52717cfff04ee9ca6de6deb))
+* publish on push tags ([d1aa6fd](https://github.com/mxenabled/path-tools/commit/d1aa6fd8fd3b45d82fe3af36f0883305ed5b4cfe))
+
 ## [1.1.2](https://github.com/mxenabled/path-tools/compare/v1.1.1...v1.1.2) (2022-11-17)
 
 
