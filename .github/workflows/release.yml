@@ -29,9 +29,9 @@ jobs:
           extra-files: |
             build.gradle
             README.md
-        outputs:
-          release_created: ${{ steps.release.outputs.release_created }}
-          tag_name: ${{ steps.release.outputs.tag_name }}
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
 
   publish:
     name: 'Publish Release'
