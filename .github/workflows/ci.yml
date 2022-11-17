@@ -84,7 +84,8 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
       - name: Scan dependencies
-        run: ./gradlew dependencyCheckAnalyze --info
+        # run: ./gradlew dependencyCheckAnalyze --info
+        run: ./gradlew dependencies
 
   build:
     needs: [commits, changes]
