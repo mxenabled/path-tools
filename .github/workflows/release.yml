@@ -37,6 +37,7 @@ jobs:
 
   publish:
     needs: [ release ]
+    runs-on: ubuntu-latest
     if: ${{ needs.release.outputs.release_created }}
     steps:
       - uses: ./.github/workflows/publish.yml
