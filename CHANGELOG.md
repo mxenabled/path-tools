@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/mxenabled/path-tools/compare/v1.1.3...v1.1.4) (2022-11-17)
+
+
+### Bug Fixes
+
+* phantom fix ([8836688](https://github.com/mxenabled/path-tools/commit/883668834ea1ab10152bd082bd6a1c507aea43c2))
+
 ## [1.1.3](https://github.com/mxenabled/path-tools/compare/v1.1.2...v1.1.3) (2022-11-17)
 
 
