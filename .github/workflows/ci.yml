@@ -18,9 +18,6 @@ on:
 
 name: ci
 
-permissions:
-  contents: read
-
 jobs:
   commits:
     runs-on: ubuntu-latest
