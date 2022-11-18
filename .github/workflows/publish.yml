@@ -6,7 +6,6 @@
 # Signs and published artifacts to Maven Central
 #
 on:
-  workflow_dispatch:
   workflow_call:
 
 name: publish
