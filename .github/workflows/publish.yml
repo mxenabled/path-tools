@@ -7,6 +7,12 @@
 #
 on:
   workflow_call:
+    inputs:
+      java-version:
+        default: '17'
+        description: JDK version
+        required: false
+        type: string
 
 name: publish
 
@@ -17,10 +23,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
+      - name: Set up JDK ${{ inputs.java-version }}
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: ${{ inputs.java-version }}
           distribution: 'corretto'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
