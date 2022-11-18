@@ -43,11 +43,14 @@ jobs:
 
   publish:
     needs: [ release ]
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     if: ${{ needs.release.outputs.release_created }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: ./.github/workflows/publish.yml
-        with:
-          dry-run: ${{ inputs.dry-run }}
+    uses: mxenabled/path-tools/.github/workflows/publish.yml@master
+    with:
+      dry-run: ${{ inputs.dry-run }}
+    #steps:
+    #  - uses: actions/checkout@v3
+    #  - uses: gradle/wrapper-validation-action@v1
+    #  - uses: ./.github/workflows/publish.yml
+    #    with:
+    #      dry-run: ${{ inputs.dry-run }}
