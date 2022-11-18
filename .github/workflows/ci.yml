@@ -21,6 +21,11 @@ on:
         description: JDK version
         required: false
         type: string
+      java-distribution:
+        default: 'corretto'
+        description: JDK distribution
+        required: false
+        type: string
 
 name: ci
 
@@ -66,11 +71,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
-      - name: Set up JDK ${{ inputs.java-version }}
+      - name: Set up JDK ${{ inputs.java-version }} (${{ inputs.java-distribution }})
         uses: actions/setup-java@v3
         with:
           java-version: ${{ inputs.java-version }}
-          distribution: 'corretto'
+          distribution: ${{ inputs.java-distribution }}
       - name: Validate dependencies
         run: ./gradlew vogueReport
 
@@ -81,11 +86,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
-      - name: Set up JDK ${{ inputs.java-version }}
+      - name: Set up JDK ${{ inputs.java-version }} (${{ inputs.java-distribution }})
         uses: actions/setup-java@v3
         with:
           java-version: ${{ inputs.java-version }}
-          distribution: 'corretto'
+          distribution: ${{ inputs.java-distribution }}
       - name: Scan dependencies
         run: ./gradlew dependencyCheckAnalyze --info
 
@@ -96,10 +101,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
-      - name: Set up JDK ${{ inputs.java-version }}
+      - name: Set up JDK ${{ inputs.java-version }} (${{ inputs.java-distribution }})
         uses: actions/setup-java@v3
         with:
           java-version: ${{ inputs.java-version }}
-          distribution: 'corretto'
+          distribution: ${{ inputs.java-distribution }}
       - name: Build
         run: ./gradlew build
