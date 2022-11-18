@@ -26,6 +26,11 @@ on:
         description: JDK distribution
         required: false
         type: string
+      force:
+        default: false
+        description: Force all steps (ignore changes and branch)
+        required: false
+        type: boolean
 
 name: ci
 
@@ -66,7 +71,7 @@ jobs:
 
   validate:
     needs: [commits, changes]
-    if: ${{ needs.changes.outputs.src == 'true' &&  github.ref_name != 'master' && !startsWith(github.ref_name, 'release-please--') }}
+    if: ${{ (inputs.force || (needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -81,7 +86,7 @@ jobs:
 
   scan:
     needs: [commits, changes]
-    if: ${{ needs.changes.outputs.src == 'true' && github.ref_name != 'master' && !startsWith(github.ref_name, 'release-please--') }}
+    if: ${{ (inputs.force || (needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -96,7 +101,7 @@ jobs:
 
   build:
     needs: [commits, changes]
-    if: ${{ needs.changes.outputs.src == 'true' && !startsWith(github.ref_name, 'release-please--') }}
+    if: ${{ (inputs.force || needs.changes.outputs.src == 'true') && !startsWith(github.ref_name, 'release-please--') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
