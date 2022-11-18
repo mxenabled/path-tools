@@ -23,6 +23,15 @@ on:
         description: If true, only publish locally
         required: false
         type: boolean
+    secrets:
+      OSSRH_USERNAME:
+        required: true
+      OSSRH_TOKEN:
+        required: true
+      GPG_SIGNING_KEY_BASE64:
+        required: true
+      GPG_SIGNING_PASSPHRASE:
+        required: true
 
 name: publish
 
