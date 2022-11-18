@@ -40,6 +40,4 @@ jobs:
     needs: [ release ]
     runs-on: ubuntu-latest
     if: ${{ needs.release.outputs.release_created }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: mxenabled/path-tools/.github/workflows/publish.yml@master
+    uses: mxenabled/path-tools/.github/workflows/publish.yml@master
