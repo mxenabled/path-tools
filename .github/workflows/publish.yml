@@ -18,6 +18,11 @@ on:
         description: JDK distribution
         required: false
         type: string
+      dry-run:
+        default: false
+        description: If true, only publish locally
+        required: false
+        type: boolean
 
 name: publish
 
@@ -35,6 +40,16 @@ jobs:
           distribution: ${{ inputs.java-distribution }}
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-      - name: Publish Release
+      - if: ${{ inputs.dry-run }}
+        name: Publish Release (Local)
+        run: ./gradlew publishToMavenLocal
+      - if: ${{ !inputs.dry-run }}
+        name: Publish Release (Maven Central)
         run: |
-          ./gradlew publishToMavenLocal
+          export ORG_GRADLE_PROJECT_signingKey=$(echo -n "$GPG_SIGNING_KEY_BASE64" | base64 -d)
+          ./gradlew publishToCentral closeAndReleaseCentralStagingRepository
+        env:
+          ORG_GRADLE_PROJECT_ossrhUserName: ${{ secrets.OSSRH_USERNAME }}
+          ORG_GRADLE_PROJECT_ossrhToken: ${{ secrets.OSSRH_TOKEN }}
+          GPG_SIGNING_KEY_BASE64: ${{ secrets.GPG_SIGNING_KEY_BASE64 }}
+          ORG_GRADLE_PROJECT_signingKeyPassword: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
