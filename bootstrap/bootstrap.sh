@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Notes:
-#
-# For running test web server
-# https://github.com/marc0der/gradle-spawn-plugin
-#
-
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -15,22 +9,22 @@ NC='\033[0m'
 # Args
 REPOSITORY="https://artifactory.internal.mx:443"
 FORCE=false
-while getopts 't:r:n:a:f' opt; do
+while getopts 'n:t:a:r:f' opt; do
   case "$opt" in
-    t)
-    PROJECT_TYPE=${OPTARG}
-    ;;
-
-    r)
-    REPOSITORY=${OPTARG}
-    ;;
-
     n)
     NAME=${OPTARG}
     ;;
 
+    t)
+    PROJECT_TYPE=${OPTARG}
+    ;;
+
     a)
     ACCESSOR=${OPTARG}
+    ;;
+
+    r)
+    REPOSITORY=${OPTARG}
     ;;
 
     f)
@@ -39,41 +33,37 @@ while getopts 't:r:n:a:f' opt; do
 
     ?|h)
     echo ""
-    echo "Usage: ./bootstrap [OPTIONS]"
-    echo "  -f: force delete existing folder"
-    echo "  -r [REPOSITORY]: repository (default https://artifactory.internal.mx:443)"
-    echo "  -t [PROJECT_TYPE]: project type (a - accessor, c - connector)"
-    echo "  -a [ACCESSOR]: accessor coordinates"
-    echo "  -a [NAME]: project name"
+    echo "Usage: ./bootstrap.sh [OPTIONS]"
+    echo "  -n [NAME]         - project name (in Pascal Case. Example: CheckFree)"
+    echo "  -t [PROJECT_TYPE] - project type (a - accessor, c - connector)"
+    echo "  -a [ACCESSOR]     - accessor coordinates"
+    echo "  -r [REPOSITORY]   - repository (default: https://artifactory.internal.mx:443)"
+    echo "  -f                - force delete existing folder"
     echo ""
     exit 1
     ;;
   esac
 done
 
-
-
-
-
-
 echo "Checking prerequisites..."
-echo
+echo ""
 if ! command -v javac &> /dev/null
 then
     echo -e "${RED}JDK not installed. Please install a distribution of JDK 17. Visit: https://github.com/shyiko/jabba${NC}"
     exit 1
 fi
-echo -e "${GREEN}JDK installed.${NC}"
 
+echo -e "${GREEN}JDK installed.${NC}"
+echo ""
 if ! command -v gradle &> /dev/null
 then
   echo -e "${RED}gradle not installed. Please visit: https://gradle.org/install/${NC}"
   while true; do
-    read -p "Continue anyway? (y)es, (n)o" yn
+    read -p "Continue anyway? (y)es, (n)o  " yn
     case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit 1;;
-        * ) echo "Please answer yes or no.";;
+      [Yy]* ) break;;
+      [Nn]* ) exit 1;;
+      * ) echo "Please answer yes or no.";;
     esac
   done
   echo -e "${YELLOW}Continuing without gradle. If you encounter errors, please install gradle.${NC}"
@@ -88,16 +78,16 @@ if [[ -z ${PROJECT_TYPE} ]]; then
     echo "  c - connector"
     read -p "Enter the type  " PROJECT_TYPE
     case $PROJECT_TYPE in
-        [a]* ) break;;
-        [c]* ) break;;
-        * ) echo -e "${RED}Invalid type $PROJECT_TYPE${NC}";;
+      [a]* ) break;;
+      [c]* ) break;;
+      * ) echo -e "${RED}Invalid type $PROJECT_TYPE${NC}";;
     esac
   done
 fi
 
 if [ "$PROJECT_TYPE" = "a" ]; then
   if [[ -z ${NAME} ]]; then
-    read -p "Enter name of system to integrate (pascal-case. example: CheckFree) " systemName
+    read -p "Enter name of system to integrate (pascal-case. example: CheckFree)  " systemName
   else
     systemName="$NAME"
   fi
@@ -203,4 +193,5 @@ fi
 
 echo ""
 echo -e "${YELLOW}¯\_(ツ)_/¯${NC}"
+echo ""
 exit 1
