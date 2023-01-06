@@ -31,6 +31,11 @@ on:
         description: Force all steps (ignore changes and branch)
         required: false
         type: boolean
+      skip-dependency-checks:
+        default: false
+        description: Skip dependency check steps
+        required: false
+        type: boolean
 
 name: ci
 
@@ -71,7 +76,7 @@ jobs:
 
   validate:
     needs: [commits, changes]
-    if: ${{ (inputs.force || (needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
+    if: ${{ (inputs.force || (!inputs.skip-dependency-checks && needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -86,7 +91,7 @@ jobs:
 
   scan:
     needs: [commits, changes]
-    if: ${{ (inputs.force || (needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
+    if: ${{ (inputs.force || (!inputs.skip-dependency-checks && needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
