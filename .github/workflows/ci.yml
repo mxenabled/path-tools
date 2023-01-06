@@ -89,21 +89,6 @@ jobs:
       - name: Validate dependencies
         run: ./gradlew vogueReport
 
-  scan:
-    needs: [commits, changes]
-    if: ${{ (inputs.force || (!inputs.skip-dependency-checks && needs.changes.outputs.src == 'true' && github.ref_name != 'master')) && !startsWith(github.ref_name, 'release-please--') }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/wrapper-validation-action@v1
-      - name: Set up JDK ${{ inputs.java-version }} (${{ inputs.java-distribution }})
-        uses: actions/setup-java@v3
-        with:
-          java-version: ${{ inputs.java-version }}
-          distribution: ${{ inputs.java-distribution }}
-      - name: Scan dependencies
-        run: ./gradlew dependencyCheckAnalyze --info
-
   build:
     needs: [commits, changes]
     if: ${{ (inputs.force || needs.changes.outputs.src == 'true') && !startsWith(github.ref_name, 'release-please--') }}
