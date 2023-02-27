@@ -1,9 +1,0 @@
-plugins {
-  id "com.github.mxenabled.path-scaffold" version "0.0.1-SNAPSHOT"
-}
-
-repositories {
-  mavenCentral()
-  mavenLocal()
-  maven { url "https://jitpack.io" }
-}
