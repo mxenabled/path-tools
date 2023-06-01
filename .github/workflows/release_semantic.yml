@@ -1,0 +1,64 @@
+on:
+  workflow_call:
+    inputs:
+      dry-run:
+        default: false
+        description: Only publish locally
+        required: false
+        type: boolean
+    secrets:
+      OSSRH_USERNAME:
+        required: true
+      OSSRH_TOKEN:
+        required: true
+      GPG_SIGNING_KEY_BASE64:
+        required: true
+      GPG_SIGNING_PASSPHRASE:
+        required: true
+
+name: release
+
+permissions:
+  contents: read # for checkout
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Semantic Release
+        id: release
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          dry_run: ${{ inputs.dry-run }}
+          tag_format: ${version}
+          extra_plugins: |
+            commitlint@latest
+            @commitlint/config-conventional
+            @google/semantic-release-replace-plugin
+            conventional-changelog-conventionalcommits
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      release_created: ${{ steps.release.outputs.new_release_published }}
+      tag_name: ${{ steps.release.outputs.new_release_version }}
+
+  publish:
+    needs: [ release ]
+    if: ${{ needs.release.outputs.release_created }}
+    uses: mxenabled/path-tools/.github/workflows/publish.yml@master
+    with:
+      dry-run: ${{ inputs.dry-run || false }}
+    secrets:
+      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
+      GPG_SIGNING_KEY_BASE64: ${{ secrets.GPG_SIGNING_KEY_BASE64 }}
+      GPG_SIGNING_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
