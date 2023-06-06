@@ -15,6 +15,8 @@ on:
         required: true
       GPG_SIGNING_PASSPHRASE:
         required: true
+      SEMANTIC_TOKEN:
+        required: true
 
 name: release
 
@@ -30,6 +32,8 @@ jobs:
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
     steps:
+      - name: Log
+        run: echo ${{ secrets.SEMANTIC_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -38,6 +42,7 @@ jobs:
         id: release
         uses: cycjimmy/semantic-release-action@v3
         with:
+          ci: false
           dry_run: ${{ inputs.dry-run || false }}
           tag_format: ${version}
           extra_plugins: |
@@ -45,7 +50,7 @@ jobs:
             @google/semantic-release-replace-plugin
             conventional-changelog-conventionalcommits
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
       - name: Release version
         if: steps.release.outputs.new_release_published == 'true'
         run: |
