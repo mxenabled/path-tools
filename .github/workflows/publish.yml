@@ -23,6 +23,10 @@ on:
         description: If true, only publish locally
         required: false
         type: boolean
+      ref:
+        description: Ref to release from
+        required: false
+        type: string
     secrets:
       OSSRH_USERNAME:
         required: true
@@ -41,7 +45,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: log
+        run: |
+          echo "${{ github.ref }}"
+          echo "${{ inputs.ref }}"
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.ref || github.ref }}
       - name: Set up JDK ${{ inputs.java-version }} (${{ inputs.java-distribution }})
         uses: actions/setup-java@v3
         with:

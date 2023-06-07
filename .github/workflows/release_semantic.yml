@@ -52,20 +52,22 @@ jobs:
       - name: Release version
         if: steps.release.outputs.new_release_published == 'true'
         run: |
-          echo ${{ steps.release.outputs.new_release_version }}
-          echo ${{ steps.release.outputs.new_release_major_version }}
-          echo ${{ steps.release.outputs.new_release_minor_version }}
-          echo ${{ steps.release.outputs.new_release_patch_version }}
+          echo "published?: ${{ steps.release.outputs.new_release_published }}"
+          echo "new version: ${{ steps.release.outputs.new_release_version }}"
+          echo "orig ref: ${{ github.ref }}"
+          echo "new ref: ${{ steps.release.outputs.new_release_git_head }}"
     outputs:
       release_created: ${{ steps.release.outputs.new_release_published }}
-      tag_name: ${{ steps.release.outputs.new_release_version }}
+      release_version: ${{ steps.release.outputs.new_release_version }}
+      new_release_git_head: ${{ steps.release.outputs.new_release_git_head }}
 
   publish:
     needs: [ release ]
+    name: Publish
     if: ${{ needs.release.outputs.release_created == 'true' }}
-    uses: mxenabled/path-tools/.github/workflows/publish.yml@master
+    uses: mxenabled/path-tools/.github/workflows/publish.yml@ts
     with:
-      dry-run: ${{ inputs.dry-run || false }}
+      ref: ${{ needs.release.outputs.new_release_git_head }}
     secrets:
       OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
       OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
