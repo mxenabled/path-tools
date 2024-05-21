@@ -44,6 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+
       - uses: gentleseal/action-conventional-commits@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,6 +63,30 @@ jobs:
               "style",
               "test"
             ]
+
+      - name: Determine branches
+        id: vars
+        run: |
+          HEAD_BRANCH=$(echo ${GITHUB_REF#refs/heads/})
+          BASE_BRANCH='master'
+          echo "BASE_BRANCH=$BASE_BRANCH" >> $GITHUB_ENV
+          echo "HEAD_BRANCH=$HEAD_BRANCH" >> $GITHUB_ENV
+
+      - name: Reject Merge Commits
+        env:
+          BASE_BRANCH: ${{ env.BASE_BRANCH }}
+          HEAD_BRANCH: ${{ env.HEAD_BRANCH }}
+        run: |
+          git fetch origin $BASE_BRANCH $HEAD_BRANCH
+          commits=$(git rev-list --merges origin/${{ env.BASE_BRANCH }}..origin/${{ env.HEAD_BRANCH }})
+          if [ -n "$commits" ]; then
+            echo "Push contains merge commits. Please rebase and remove merge commits."
+            echo "Merge commits found: $commits"
+            exit 1
+          else
+            echo "No merge commits found."
+            exit 0
+          fi
 
   changes:
     if: ${{ !startsWith(github.ref_name, 'release-please--') }}
