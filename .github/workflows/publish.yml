@@ -9,7 +9,7 @@ on:
   workflow_call:
     inputs:
       java-version:
-        default: '17'
+        default: '21'
         description: JDK version
         required: false
         type: string
